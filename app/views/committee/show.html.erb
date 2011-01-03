@@ -1,0 +1,14 @@
+<h1><%= @committee.acronym %></h1>
+<p>
+<% if @status %>
+  Latest: <%=@status.text%><br />
+<% end %>
+<%= form_tag(@committee.acronym.downcase + '/msg') do %>
+  <%= text_area :message, :text, :cols => 30, :rows => 3 %>
+  <br />
+  <%= submit_tag "Post" %>
+<% end %>
+</p>
+<p>
+<%= link_to 'Attendance', '/'+@committee.acronym.downcase+'/attendance/' %>
+</p>
