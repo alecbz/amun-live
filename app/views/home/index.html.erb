@@ -6,15 +6,21 @@ pusher.bind('new_message', function(data) {
     alert("woot!");
     });
 </script>
-<h1>AMUN <%=conference_year%></h1>
-<h3>Live Feed</h3>
-<div id="feed">
-  <% @messages.each do |msg| %>
-    <%= content_tag_for(:p,msg) do %>
-      <strong><%= msg.committee.acronym %></strong>:<br />
-      <%= msg.text %>
+<header id="banner" class="body">
+<h1><a href="/">AMUN <%=conference_year%><br /><strong>Academy Model UN Conference</strong></a></h1>
+</header>
+
+<section id="committees" class="body content">
+  <%= render :partial => "committee/committee", :collection => @committees %>
+</section>
+  
+<section id="feed" class="body content">
+  <ol id="msg-feed" class="hfeed">
+    <% @messages.each do |msg| %>
+      <li><div class="msg">
+        <h2 class="poster"><%= msg.committee.acronym %>:</h2>
+        <p class="msg-text"><%= msg.text %></p>
+      </div></li>
     <% end %>
-  <% end %>
-</div>
-<h3>Committees</h3>
-<%= render :partial => "committee/committee", :collection => @committees %>
+  </ol>
+</section>

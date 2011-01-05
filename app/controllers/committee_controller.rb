@@ -3,6 +3,7 @@ class CommitteeController < ApplicationController
 
   def show
     @status = @committee.messages.order("created_at DESC").first
+    @messages = Message.order('created_at  DESC').limit(20)
   end
 
   def attendance

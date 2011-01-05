@@ -1,0 +1,7 @@
+<nav>
+  <ul>
+    <%= content_tag(:li,link_to("Feed","/"+committee.acronym.downcase),
+                    :class => (page == :feed ? "active" : nil)) %> 
+    <%= content_tag(:li,link_to("Attendance","/"+committee.acronym.downcase+"/attendance/1"), :class => (page == :attendance ? "active" : nil)) %> 
+  </ul>
+</nav>

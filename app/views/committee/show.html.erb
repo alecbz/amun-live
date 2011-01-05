@@ -1,14 +1,29 @@
-<h1><%= @committee.acronym %></h1>
-<p>
-<% if @status %>
-  Latest: <%=@status.text%><br />
-<% end %>
-<%= form_tag(@committee.acronym.downcase + '/msg') do %>
-  <%= text_area :message, :text, :cols => 30, :rows => 3 %>
-  <br />
-  <%= submit_tag "Post" %>
-<% end %>
-</p>
-<p>
-<%= link_to 'Attendance', '/'+@committee.acronym.downcase+'/attendance/' %>
-</p>
+<header id="banner" class="body">
+  <h1><a href="/<%= @committee.acronym.downcase %>"><%= @committee.name %><br />
+      <strong>Academy Model UN Conference</strong>
+    </a>
+  </h1>
+  <%= render :partial => "layouts/nav", :locals =>
+  {:committee => @committee, :page => :feed} %>
+</header>
+
+<section id="msg-form" class="body content">
+  <% if @status %>
+    <p>Latest: <%= @status.text %></p>
+  <% end %>
+  <%= form_tag(@committee.acronym.downcase + '/msg') do %>
+    <%= text_area :message, :text, :cols => 20, :rows => 3 %><br />
+    <%= submit_tag "Post" %>
+  <% end %>
+</section>
+
+<section id="feed" class="body content">
+  <ol id="msg-feed" class="hfeed">
+    <% @messages.each do |msg| %>
+      <li><div class="msg">
+        <h2 class="poster"><%= msg.committee.acronym %>:</h2>
+        <p class="msg-text"><%= msg.text %></p>
+      </div></li>
+    <% end %>
+  </ol>
+</section>
