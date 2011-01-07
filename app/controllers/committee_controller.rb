@@ -31,7 +31,7 @@ class CommitteeController < ApplicationController
     end
     respond_to do |format|
       format.html { redirect_to :action => 'attendance',
-        :notice => "attendance records updated",
+        :notice => "Attendance records updated.",
         :session => @session }
     end
   end

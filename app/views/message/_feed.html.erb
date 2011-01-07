@@ -1,0 +1,10 @@
+<section id="feed" class="body content">
+  <ol id="msg-feed" class="hfeed">
+    <% messages.each do |msg| %>
+      <li><div class="msg">
+        <h2 class="poster"><%= msg.committee.acronym %>:</h2>
+        <p class="msg-text"><%= msg.text %></p>
+      </div></li>
+    <% end %>
+  </ol>
+</section>

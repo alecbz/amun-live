@@ -1,6 +1,8 @@
 @import url("reset.css");
 @import url("global-forms.css");
 
+.notice {background: #c3ff9a; border-color: #050; color: #050; width:100%; text-align: center; }
+
 body {
   background: #f0efea;
   color: #000305
@@ -77,6 +79,7 @@ aside, nav, article, figure {
   display: block;
 }
 
+
 .body {clear:both; margin: 0 auto; width:800px;}
 
 #banner {
@@ -84,13 +87,14 @@ aside, nav, article, figure {
   padding: 2.5em 0 0 0;
 }
 
-#banner h1 {font-size: 3em; line-height:.6;}
+#banner h1 {font-size: 3em; line-height:.8;}
 #banner h1 a:link, #banner h1 a:visited {
   color: #000305;
   display: block;
   font-weight: bold;
   margin: 0 0 .6em .2em;
   text-decoration: none;
+  /* -webkit-transition: color 3 linear; */
 }
 #banner h1 a:hover, #banner h1 a:active {
   background: none;
@@ -114,6 +118,11 @@ aside, nav, article, figure {
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
 }
+
+#banner nav#home-nav {
+  margin: 0 auto 0.5em auto;
+}
+* #banner nav#home-nav:last-child {margin-bottom: 2em;}
 
 #banner nav ul {list-style: none; margin: 0 auto; width: 800px;}
 #banner nav li {float: left; display: inline; margin: 0;}
@@ -186,3 +195,12 @@ li:last-child .msg, #feed > .msg {border:0; margin:0;}
   color: #c74350;
   text-shadow: none;
 }
+
+#committees .committee {
+  padding-left: 50px;
+}
+
+#committees .committee a:link, #committees .committee a:visited {
+  text-shadow: 0px 0px 0px #333;
+}
+
