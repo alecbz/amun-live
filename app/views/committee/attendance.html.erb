@@ -1,6 +1,11 @@
 <% present_field = ('present' + @session).to_sym %>
 <% base_url = '/'+@committee.acronym.downcase+'/attendance/' %>
 <% submit_url = base_url + @session %>
+<script type="text/javascript">
+  window.onload = function() {
+    document.getElementsByClassName('notice')[0].hide().appear({duration: 0.5});
+  }
+</script>
 <header id="banner" class="body">
   <h1><a href="/<%= @committee.acronym.downcase %>"><%= @committee.name %><br />
       <strong>Academy Model UN Conference</strong>
@@ -18,7 +23,7 @@
   <% end %> 
 <% end %>
 <% if @notice %>
-  <p class="notice"><%= @notice %></p>
+  <p class="notice" onclick="$(this).hide().appear();"><%= @notice %></p>
 <% end %>
 <hr />
 <% if @attendees.empty? %>

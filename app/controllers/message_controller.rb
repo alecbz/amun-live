@@ -9,7 +9,7 @@ class MessageController < ApplicationController
     @msg = Message.new(params[:message])
     @msg.committee = Committee.find_by_acronym(params[:committee].upcase)
     @msg.save
-    Pusher['messages'].trigger('new_message',@msg.attributes)
+    Pusher['messages'].trigger('new_message',{:text => @msg.text, :poster => @msg.committee.acronym})
 
     respond_to do |format|
       format.html { redirect_to :controller => "committee",
